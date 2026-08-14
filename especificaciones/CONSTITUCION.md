@@ -61,4 +61,4 @@ Cada archivo en `especificaciones/` sigue esta estructura mínima:
 |---|---|---|---|
 | 001 | [App de gimnasio: rutinas semanales](001-app-gimnasio-rutinas-semanales.md) | Cerrada | `spec/001-app-gimnasio-rutinas-semanales` |
 | 002 | [Fondo oscuro](002-fondo-oscuro.md) | Cerrada | `spec/002-fondo-oscuro` |
-| 003 | [Apartado de comidas por día](003-comidas-por-dia.md) | Borrador | `spec/003-comidas-por-dia` |
+| 003 | [Apartado de comidas por día](003-comidas-por-dia.md) | Aprobada | `spec/003-comidas-por-dia` |

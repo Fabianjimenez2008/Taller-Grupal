@@ -1,6 +1,6 @@
 # 003 - Apartado de comidas por día
 
-- **Estado**: Borrador
+- **Estado**: Aprobada
 - **Rama**: `spec/003-comidas-por-dia`
 - **Fecha**: 2026-08-14
 - **Arquitectura/tooling**: ver [CONSTITUCION.md](CONSTITUCION.md) (MVC + uv)
@@ -29,6 +29,11 @@ entrenamiento (lunes a viernes), asociadas a la rutina de ese día.
   por día, se sobreescribe/edita in place, sin historial de semanas
   anteriores.
 - **Usuario**: uso personal, un único usuario, sin login/autenticación.
+- **Repetición de tipo**: se permite más de una comida del mismo tipo en un
+  mismo día (por ejemplo, dos snacks); no hay límite de una comida por tipo.
+- **Ubicación en la UI**: las comidas se muestran en una sección/pestaña
+  separada de la página del día, distinta de la de la rutina de ejercicios
+  (no mezcladas en la misma lista).
 
 ## Alcance
 
@@ -49,8 +54,8 @@ entrenamiento (lunes a viernes), asociadas a la rutina de ese día.
 
 ## Historias de usuario
 
-1. Como usuario, quiero ver las comidas planeadas para un día específico
-   junto con su rutina de ejercicios.
+1. Como usuario, quiero ver las comidas planeadas para un día específico, en
+   una sección separada de la rutina de ejercicios de ese mismo día.
 2. Como usuario, quiero agregar una comida a un día (nombre y tipo:
    desayuno/almuerzo/cena/snack).
 3. Como usuario, quiero editar una comida ya cargada en un día.
@@ -74,6 +79,10 @@ entrenamiento (lunes a viernes), asociadas a la rutina de ese día.
   cerrar o reiniciar la app).
 - **RF7**: Al editar/eliminar una comida de un día, el cambio reemplaza el
   estado anterior de ese día (no se conserva versión previa).
+- **RF8**: El sistema permite más de una comida del mismo tipo en un mismo
+  día (no hay restricción de unicidad por tipo).
+- **RF9**: La vista de comidas de un día se presenta en una sección/pestaña
+  separada de la vista de la rutina de ejercicios de ese día.
 
 ## Entidades de datos (Modelo)
 
@@ -84,7 +93,10 @@ entrenamiento (lunes a viernes), asociadas a la rutina de ese día.
 ## Criterios de aceptación
 
 - Dado que estoy en la página de "Martes", cuando la app carga, entonces
-  veo tanto la rutina de ejercicios como las comidas planeadas para ese día.
+  veo la rutina de ejercicios y, en una sección separada, las comidas
+  planeadas para ese día.
+- Dado que agrego dos comidas de tipo "snack" el mismo día, entonces ambas
+  se guardan y se muestran, sin que la segunda reemplace a la primera.
 - Dado que agrego una comida a "Jueves", cuando vuelvo a entrar a la app,
   entonces la comida sigue apareciendo en Jueves.
 - Dado que intento acceder a comidas de Sábado o Domingo, entonces la app no
@@ -96,7 +108,4 @@ entrenamiento (lunes a viernes), asociadas a la rutina de ese día.
 
 ## Preguntas abiertas
 
-- ¿Se necesita limitar a una comida por tipo por día (por ejemplo, un solo
-  "desayuno"), o se permiten varias comidas del mismo tipo en un día?
-- ¿La vista de comidas va en la misma página del día (junto a la rutina) o
-  en una sección/pestaña separada dentro de esa página?
+Ninguna: ambas preguntas fueron resueltas (ver "Decisiones ya tomadas").
