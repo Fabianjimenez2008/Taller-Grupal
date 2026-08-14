@@ -3,6 +3,11 @@
 {% block content %}
   <h2>{{ nombres_display[dia] }}</h2>
 
+  <nav class="subnav">
+    <a class="activo" href="{{ url_for('rutina.ver_dia', nombre_dia=dia) }}">Rutina</a>
+    <a href="{{ url_for('comida.ver_comidas', nombre_dia=dia) }}">Comidas</a>
+  </nav>
+
   {% if ejercicios %}
   <table>
     <thead>

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}{{ nombres_display[dia] }} · Comidas{% endblock %}
+{% block content %}
+  <h2>{{ nombres_display[dia] }}</h2>
+
+  <nav class="subnav">
+    <a href="{{ url_for('rutina.ver_dia', nombre_dia=dia) }}">Rutina</a>
+    <a class="activo" href="{{ url_for('comida.ver_comidas', nombre_dia=dia) }}">Comidas</a>
+  </nav>
+
+  {% if comidas %}
+  <table>
+    <thead>
+      <tr>
+        <th>Comida</th><th>Tipo</th><th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for c in comidas %}
+      <tr>
+        <td>{{ c.nombre }}</td>
+        <td>{{ nombres_display_tipo[c.tipo] }}</td>
+        <td>
+          <div class="acciones">
+            <a class="boton-editar"
+               href="{{ url_for('comida.editar_comida', nombre_dia=dia, comida_id=c.id) }}">Editar</a>
+            <form class="inline" method="post"
+                  action="{{ url_for('comida.eliminar_comida', nombre_dia=dia, comida_id=c.id) }}"
+                  onsubmit="return confirm('¿Eliminar esta comida?');">
+              <button class="eliminar" type="submit">Eliminar</button>
+            </form>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    <p>Todavía no cargaste comidas para este día.</p>
+  {% endif %}
+
+  <h3>Agregar comida</h3>
+  <form class="form-comida" method="post"
+        action="{{ url_for('comida.agregar_comida', nombre_dia=dia) }}">
+    <input name="nombre" placeholder="Nombre (ej: Avena con fruta)" required>
+    <select name="tipo" required>
+      {% for t in tipos %}
+        <option value="{{ t }}">{{ nombres_display_tipo[t] }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit">Agregar</button>
+  </form>
+{% endblock %}
