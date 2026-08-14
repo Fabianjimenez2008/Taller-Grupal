@@ -60,3 +60,4 @@ Cada archivo en `especificaciones/` sigue esta estructura mínima:
 | # | Especificación | Estado | Rama |
 |---|---|---|---|
 | 001 | [App de gimnasio: rutinas semanales](001-app-gimnasio-rutinas-semanales.md) | Cerrada | `spec/001-app-gimnasio-rutinas-semanales` |
+| 002 | [Fondo oscuro](002-fondo-oscuro.md) | Cerrada | `spec/002-fondo-oscuro` |
