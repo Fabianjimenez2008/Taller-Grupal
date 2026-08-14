@@ -7,6 +7,7 @@ from pathlib import Path
 
 from flask import Flask
 
+from src.controllers.comida_controller import bp as comida_bp
 from src.controllers.rutina_controller import bp as rutina_bp
 from src.models.db import init_db
 from src.models.dia import NOMBRES_DISPLAY, listar_dias
@@ -23,6 +24,7 @@ def create_app():
 
     init_db()
     app.register_blueprint(rutina_bp)
+    app.register_blueprint(comida_bp)
 
     @app.context_processor
     def inject_dias_nav():

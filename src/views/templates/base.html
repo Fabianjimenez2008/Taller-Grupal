@@ -37,12 +37,15 @@
       color: var(--texto);
     }
     nav a.activo { background: var(--acento); color: var(--acento-texto); border-color: var(--acento); }
+    nav.subnav { margin-bottom: 1rem; }
+    nav.subnav a { font-size: .9rem; padding: .3rem .7rem; }
     table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
     th, td { text-align: left; padding: .4rem; border-bottom: 1px solid var(--borde); vertical-align: top; }
     form.inline { display: inline; }
     .acciones { display: flex; gap: .5rem; }
     form.form-ejercicio { display: grid; gap: .6rem; grid-template-columns: repeat(2, 1fr); margin-top: 1rem; }
-    form.form-ejercicio input, form.form-ejercicio textarea {
+    form.form-ejercicio input, form.form-ejercicio textarea, form.form-ejercicio select,
+    form.form-comida input, form.form-comida select {
       padding: .5rem;
       border: 1px solid var(--borde);
       border-radius: .4rem;
@@ -50,13 +53,19 @@
       background: var(--bg-elevado);
       color: var(--texto);
     }
-    form.form-ejercicio input::placeholder, form.form-ejercicio textarea::placeholder { color: var(--texto-tenue); }
-    form.form-ejercicio input:focus, form.form-ejercicio textarea:focus {
+    form.form-ejercicio input::placeholder, form.form-ejercicio textarea::placeholder,
+    form.form-comida input::placeholder { color: var(--texto-tenue); }
+    form.form-ejercicio input:focus, form.form-ejercicio textarea:focus, form.form-ejercicio select:focus,
+    form.form-comida input:focus, form.form-comida select:focus {
       outline: none;
       border-color: var(--acento);
     }
     form.form-ejercicio textarea { grid-column: span 2; resize: vertical; }
-    form.form-ejercicio button { grid-column: span 2; padding: .7rem; border: none; border-radius: .4rem; background: var(--acento); color: var(--acento-texto); font: inherit; cursor: pointer; }
+    form.form-ejercicio button, form.form-comida button {
+      grid-column: span 2; padding: .7rem; border: none; border-radius: .4rem;
+      background: var(--acento); color: var(--acento-texto); font: inherit; cursor: pointer;
+    }
+    form.form-comida { display: grid; gap: .6rem; grid-template-columns: repeat(2, 1fr); margin-top: 1rem; }
     a.boton-editar { color: var(--acento); text-decoration: none; }
     button.eliminar { background: var(--peligro); color: white; border: none; border-radius: .3rem; padding: .3rem .6rem; cursor: pointer; font: inherit; }
   </style>

@@ -1,6 +1,6 @@
 # 003 - Apartado de comidas por día
 
-- **Estado**: Aprobada
+- **Estado**: Cerrada
 - **Rama**: `spec/003-comidas-por-dia`
 - **Fecha**: 2026-08-14
 - **Arquitectura/tooling**: ver [CONSTITUCION.md](CONSTITUCION.md) (MVC + uv)

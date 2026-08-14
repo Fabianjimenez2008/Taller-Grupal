@@ -2,6 +2,8 @@
 
 Implementa RF1/RF2/RF3: los 5 días fijos (lunes a viernes) y su rutina
 1 a 1 se crean al iniciar la app; nunca se crean/exponen sábado o domingo.
+También crea la tabla `comida` (spec 003, RF1/RF8), colgada de la misma
+rutina del día.
 """
 
 import sqlite3
@@ -45,6 +47,15 @@ def init_db():
             peso TEXT,
             descanso TEXT,
             notas TEXT,
+            orden INTEGER NOT NULL,
+            FOREIGN KEY (rutina_id) REFERENCES rutina(id) ON DELETE CASCADE
+        );
+
+        CREATE TABLE IF NOT EXISTS comida (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            rutina_id INTEGER NOT NULL,
+            nombre TEXT NOT NULL,
+            tipo TEXT NOT NULL,
             orden INTEGER NOT NULL,
             FOREIGN KEY (rutina_id) REFERENCES rutina(id) ON DELETE CASCADE
         );
