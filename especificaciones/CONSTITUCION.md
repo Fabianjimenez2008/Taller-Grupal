@@ -59,4 +59,4 @@ Cada archivo en `especificaciones/` sigue esta estructura mínima:
 
 | # | Especificación | Estado | Rama |
 |---|---|---|---|
-| 001 | [App de gimnasio: rutinas semanales](001-app-gimnasio-rutinas-semanales.md) | Borrador | `spec/001-app-gimnasio-rutinas-semanales` |
+| 001 | [App de gimnasio: rutinas semanales](001-app-gimnasio-rutinas-semanales.md) | Implementada | `spec/001-app-gimnasio-rutinas-semanales` |

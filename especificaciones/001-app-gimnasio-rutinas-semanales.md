@@ -1,6 +1,6 @@
 # 001 - App de gimnasio: rutinas semanales (lunes a viernes)
 
-- **Estado**: Borrador
+- **Estado**: Implementada
 - **Rama**: `spec/001-app-gimnasio-rutinas-semanales`
 - **Fecha**: 2026-08-14
 - **Arquitectura/tooling**: ver [CONSTITUCION.md](CONSTITUCION.md) (MVC + uv)
