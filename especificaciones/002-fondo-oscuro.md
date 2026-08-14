@@ -1,6 +1,6 @@
 # 002 - Fondo oscuro para la app de gimnasio
 
-- **Estado**: Borrador
+- **Estado**: Cerrada
 - **Rama**: `spec/002-fondo-oscuro`
 - **Fecha**: 2026-08-14
 - **Arquitectura/tooling**: ver [CONSTITUCION.md](CONSTITUCION.md) (MVC + uv)
