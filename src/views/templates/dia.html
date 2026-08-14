@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}{{ nombres_display[dia] }} · Rutina{% endblock %}
+{% block content %}
+  <h2>{{ nombres_display[dia] }}</h2>
+
+  {% if ejercicios %}
+  <table>
+    <thead>
+      <tr>
+        <th>Ejercicio</th><th>Series</th><th>Reps</th><th>Peso</th><th>Descanso</th><th>Notas</th><th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for e in ejercicios %}
+      <tr>
+        <td>{{ e.nombre }}</td>
+        <td>{{ e.series }}</td>
+        <td>{{ e.repeticiones }}</td>
+        <td>{{ e.peso or '—' }}</td>
+        <td>{{ e.descanso or '—' }}</td>
+        <td>{{ e.notas or '—' }}</td>
+        <td>
+          <div class="acciones">
+            <a class="boton-editar"
+               href="{{ url_for('rutina.editar_ejercicio', nombre_dia=dia, ejercicio_id=e.id) }}">Editar</a>
+            <form class="inline" method="post"
+                  action="{{ url_for('rutina.eliminar_ejercicio', nombre_dia=dia, ejercicio_id=e.id) }}"
+                  onsubmit="return confirm('¿Eliminar este ejercicio?');">
+              <button class="eliminar" type="submit">Eliminar</button>
+            </form>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    <p>Todavía no cargaste ejercicios para este día.</p>
+  {% endif %}
+
+  <h3>Agregar ejercicio</h3>
+  <form class="form-ejercicio" method="post"
+        action="{{ url_for('rutina.agregar_ejercicio', nombre_dia=dia) }}">
+    <input name="nombre" placeholder="Nombre (ej: Sentadilla)" required>
+    <input name="series" type="number" min="1" placeholder="Series" required>
+    <input name="repeticiones" type="number" min="1" placeholder="Repeticiones" required>
+    <input name="peso" placeholder="Peso (opcional)">
+    <input name="descanso" placeholder="Descanso (opcional, ej: 60s)">
+    <textarea name="notas" placeholder="Notas (opcional)"></textarea>
+    <button type="submit">Agregar</button>
+  </form>
+{% endblock %}
